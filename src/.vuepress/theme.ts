@@ -1,4 +1,5 @@
 import { hopeTheme } from "vuepress-theme-hope";
+
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
@@ -6,18 +7,22 @@ export default hopeTheme({
     hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
     author: {
-        name: "DarlingHH",
-        url: "https://mister-hope.com",
+        name: "DarlingHH"
+        // url: "https://mister-hope.com"
     },
     lastUpdated: true,
     iconAssets: "fontawesome-with-brands",
-
     logo: "https://theme-hope-assets.vuejs.press/logo.svg",
 
-    repo: "vuepress-theme-hope/vuepress-theme-hope",
-
+    // 仓库地址
+    // repo: "darlinghh/darlinghh.github.io",
+    // 假如你的文档仓库和项目本身不在一个仓库：
+    // docsRepo: "febobo/web-interview",
+    // docsBranch: "master",
+    // 仓库中文档的目录
     docsDir: "src",
-    hotReload: true,
+    docsBranch: "main",
+    docsRepo: "darlinghh/darlinghh.github.io",
     // 导航栏
     navbar,
 
@@ -32,17 +37,17 @@ export default hopeTheme({
     // 加密配置
     encrypt: {
         config: {
-            "/demo/encrypt.html": ["1234"],
-        },
+            "/demo/encrypt.html": ["1234"]
+        }
     },
 
     // 多语言配置
     metaLocales: {
-        editLink: "在 GitHub 上编辑此页",
+        editLink: "在 GitHub 上编辑此页"
     },
 
     // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
-    // hotReload: true,
+    hotReload: true,
 
     // 在这里配置主题提供的插件
     plugins: {
@@ -56,7 +61,7 @@ export default hopeTheme({
         // },
 
         components: {
-            components: ["Badge", "VPCard"],
+            components: ["Badge", "VPCard"]
         },
 
         // 此处开启了很多功能用于演示，你应仅保留用到的功能。
@@ -70,6 +75,7 @@ export default hopeTheme({
             imgLazyload: true,
             imgSize: true,
             include: true,
+            tasklist: true,
             mark: true,
             stylize: [
                 {
@@ -79,15 +85,15 @@ export default hopeTheme({
                             return {
                                 tag: "Badge",
                                 attrs: { type: "tip" },
-                                content: "Recommended",
+                                content: "Recommended"
                             };
-                    },
-                },
+                    }
+                }
             ],
             sub: true,
             sup: true,
             tabs: true,
-            vPre: true,
+            vPre: true
 
             // 在启用之前安装 chart.js
             // chart: true,
@@ -126,7 +132,7 @@ export default hopeTheme({
 
             // install sandpack-vue3 before enabling it
             // sandpack: true,
-        },
+        }
 
         // 如果你需要 PWA。安装 vuepress-plugin-pwa2 并取消下方注释
         // pwa: {
@@ -184,5 +190,5 @@ export default hopeTheme({
         //     ],
         //   },
         // },
-    },
+    }
 });
