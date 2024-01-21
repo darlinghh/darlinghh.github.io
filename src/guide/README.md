@@ -1,16 +1,4 @@
 ---
-title: 指南
-icon: lightbulb
+title: 测试
+comment: true
 ---
-
-## 功能亮点
-
-### Bar
-
-- [baz](bar/baz.md)
-- ...
-
-### Foo
-
-- [ray](foo/ray.md)
-- ...

@@ -1,14 +1,59 @@
-# 面试官：你对 SPA 单页面的理解，它的优缺点分别是什么？如何实现 SPA 应用呢
+---
+icon: lightbulb
+tag: Vue
+category: 技术
+---
 
+<el-button>Default</el-button>
+<el-button type="primary">Primary</el-button>
+<el-button type="success">Success</el-button>
+<Home />
+
+<script setup>
+	import {onMounted} from "vue"
+	import Home from "@src/Home.vue"
+	// import { getDirname, path } from "@vuepress/utils";
+	onMounted(()=>{
+		console.log(123)
+	})
+</script>
+
+# 前端常用导航
+
+[[toc]]
 ![](https://static.vue-js.com/cf6aa320-3ac6-11eb-85f6-6fac77c0c9b3.png)
+
+## 一、影视类网站
+
+|              网站名称              | 描述 |
+| :--------------------------------: | :--: |
+| [可可影视](https://www.keke6.app/) | 可用 |
+|  [555 电影](https://55vid.shop/)   | 可用 |
 
 ## 一、什么是 SPA
 
+{{$isDarkmode}}
 Gone camping! :tent: Be back soon.
 That is so funny! :joy:
 
 ::: tip 提示
 温馨提示
+:::
+
+::: tabs
+
+@tab pnpm
+
+```bash
+pnpm create vuepress-theme-hope [dir]
+```
+
+@tab:active npm
+
+```bash
+npm init vuepress-theme-hope [dir]
+```
+
 :::
 
 -   [x] Write the press release
@@ -75,22 +120,22 @@ SPA（single-page application），翻译过来就是单页应用`SPA`是一种�
 ```js
 // 定义 Router
 class Router {
-    constructor() {
-        this.routes = {}; // 存放路由path及callback
-        this.currentUrl = "";
+	constructor() {
+		this.routes = {}; // 存放路由path及callback
+		this.currentUrl = "";
 
-        // 监听路由change调用相对应的路由回调
-        window.addEventListener("load", this.refresh, false);
-        window.addEventListener("hashchange", this.refresh, false);
-    }
+		// 监听路由change调用相对应的路由回调
+		window.addEventListener("load", this.refresh, false);
+		window.addEventListener("hashchange", this.refresh, false);
+	}
 
-    route(path, callback) {
-        this.routes[path] = callback;
-    }
+	route(path, callback) {
+		this.routes[path] = callback;
+	}
 
-    push(path) {
-        this.routes[path] && this.routes[path]();
-    }
+	push(path) {
+		this.routes[path] && this.routes[path]();
+	}
 }
 
 // 使用 router
@@ -113,31 +158,31 @@ miniRouter.push("/page2"); // page2
 ```js
 // 定义 Router
 class Router {
-    constructor() {
-        this.routes = {};
-        this.listerPopState();
-    }
+	constructor() {
+		this.routes = {};
+		this.listerPopState();
+	}
 
-    init(path) {
-        history.replaceState({ path: path }, null, path);
-        this.routes[path] && this.routes[path]();
-    }
+	init(path) {
+		history.replaceState({ path: path }, null, path);
+		this.routes[path] && this.routes[path]();
+	}
 
-    route(path, callback) {
-        this.routes[path] = callback;
-    }
+	route(path, callback) {
+		this.routes[path] = callback;
+	}
 
-    push(path) {
-        history.pushState({ path: path }, null, path);
-        this.routes[path] && this.routes[path]();
-    }
+	push(path) {
+		history.pushState({ path: path }, null, path);
+		this.routes[path] && this.routes[path]();
+	}
 
-    listerPopState() {
-        window.addEventListener("popstate", (e) => {
-            const path = e.state && e.state.path;
-            this.routers[path] && this.routers[path]();
-        });
-    }
+	listerPopState() {
+		window.addEventListener("popstate", (e) => {
+			const path = e.state && e.state.path;
+			this.routers[path] && this.routers[path]();
+		});
+	}
 }
 
 // 使用 Router
