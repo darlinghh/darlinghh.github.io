@@ -20,4 +20,9 @@ export default navbar([
 		link: "/notes/",
 		icon: "book",
 	},
+	{
+		text: "项目",
+		link: "/project/",
+		icon: "book",
+	},
 ]);

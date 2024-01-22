@@ -1,17 +1,15 @@
 import { defineUserConfig } from "vuepress";
 import { getDirname, path } from "@vuepress/utils";
+// 搜索插件
 import { searchPlugin } from "@vuepress/plugin-search";
+// 重定向插件
+import { redirectPlugin } from "vuepress-plugin-redirect";
+// 主题配置
 import theme from "./theme.js";
 const __dirname = getDirname(import.meta.url);
-console.log(
-	__dirname,
-	__filename,
-	1111,
-	path.resolve(__dirname, "./components/BlogHero.vue")
-);
+
 export default defineUserConfig({
 	base: "/",
-
 	lang: "zh-CN",
 	title: "技术博客",
 	description: "致力打造前端最全导航",
@@ -38,6 +36,12 @@ export default defineUserConfig({
 			isSearchable: (page) => page.path !== "/",
 			// 允许搜索 Frontmatter 中的 `tags`
 			getExtraFields: (page: any) => page.frontmatter.tags ?? [],
+		}),
+		redirectPlugin({
+			config: {
+				"/project": "/project/vue",
+				"/project/vue": "/project/vue/大事件管理系统.html",
+			},
 		}),
 	],
 });

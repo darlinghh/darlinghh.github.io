@@ -19,7 +19,6 @@ export default defineClientConfig({
 		);
 	},
 	enhance({ app, router, siteData }) {
-		console.log(app);
 		app.use(elementPlus);
 	},
 });
