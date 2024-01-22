@@ -5,7 +5,6 @@ import "element-plus/dist/index.css";
 // .vuepress/client.ts
 import { defineClientConfig } from "@vuepress/client";
 import { setupRunningTimeFooter } from "vuepress-theme-hope/presets/footerRunningTime.js";
-
 // 引入Element-PLUS
 import elementPlus from "element-plus";
 
@@ -19,7 +18,7 @@ export default defineClientConfig({
 			true
 		);
 	},
-	enhance({ app }) {
+	enhance({ app, router, siteData }) {
 		console.log(app);
 		app.use(elementPlus);
 	},
